@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Couple Across Borders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🌍 FAVICON (Heart + Earth SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <circle cx='50' cy='50' r='45' fill='%239ad6f5'/>
+    <path d='M50 70
+             C20 45, 35 25, 50 35
+             C65 25, 80 45, 50 70Z'
+          fill='%23ffffff'/>
+    <circle cx='40' cy='45' r='4' fill='%239ad6f5'/>
+    <circle cx='60' cy='45' r='4' fill='%239ad6f5'/>
+  </svg>"/>
+
+  <style>
+    :root {
+      --globe-blue: #9ad6f5;
+      --deep-blue: #2b5d7d;
+      --soft-white: #ffffff;
+      --text-gray: #555;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f7fbfe;
+      height: 100vh;
+    }
+
+    /* 🔹 TOP BAR */
+    header {
+      background: var(--globe-blue);
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--deep-blue);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* 🌍 LOGO SVG */
+    .logo svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--deep-blue);
+      font-weight: 500;
+      font-size: 15px;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* 🔹 MAIN CONTENT */
+    main {
+      height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .coming-soon {
+      font-size: 26px;
+      color: var(--text-gray);
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 HEADER -->
+  <header>
+    <div class="logo-area">
+      <div class="logo">
+        <!-- 🌍 HEART + EARTH LOGO -->
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+          <path d="M50 70
+                   C20 45, 35 25, 50 35
+                   C65 25, 80 45, 50 70Z"
+                fill="#9ad6f5"/>
+          <circle cx="40" cy="45" r="4" fill="#ffffff"/>
+          <circle cx="60" cy="45" r="4" fill="#ffffff"/>
+        </svg>
+      </div>
+      Couple Across Borders
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Our Story</a>
+      <a href="#">Blogs</a>
+    </nav>
+  </header>
+
+  <!-- 🔹 MAIN -->
+  <main>
+    <div class="coming-soon">
+      Our website is coming soon…
+    </div>
+  </main>
+
+</body>
+</html>
