@@ -36,13 +36,14 @@
       min-height: 100vh;
     }
 
-    /* 🔹 HEADER (UNCHANGED) */
+    /* 🔹 HEADER */
     header {
       background: var(--globe-blue);
       height: 80px;
       display: flex;
       align-items: center;
       padding: 0 40px;
+      gap: 18px;
     }
 
     .logo-area {
@@ -52,17 +53,21 @@
       color: var(--deep-blue);
       font-size: 20px;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .logo svg {
       width: 42px;
       height: 42px;
+      flex: 0 0 auto;
     }
 
     nav {
       margin-left: auto;
       display: flex;
       gap: 28px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     nav a {
@@ -71,6 +76,7 @@
       font-weight: 500;
       font-size: 15px;
       transition: opacity 0.2s ease;
+      padding: 6px 0; /* better tap area */
     }
 
     nav a:hover {
@@ -91,27 +97,29 @@
     }
 
     .hero img {
-  width: 100%;
-  max-width: 550px;   /* 👈 controls size */
-  border-radius: 22px;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
-  margin: 0 auto 28px;
-  display: block;
-  object-fit: cover;
-}
-
+      width: 100%;
+      max-width: 550px;
+      border-radius: 22px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+      margin: 0 auto 28px;
+      display: block;
+      object-fit: cover;
+    }
 
     .tagline {
       font-size: 26px;
       color: var(--deep-blue);
       font-weight: 600;
       margin-bottom: 18px;
+      padding: 0 6px;
     }
 
     .counter {
       font-size: 18px;
       color: var(--text-gray);
       letter-spacing: 0.3px;
+      padding: 0 10px;
+      line-height: 1.45;
     }
 
     .counter strong {
@@ -119,10 +127,56 @@
       font-weight: 600;
     }
 
+    /* ✅ MOBILE FIXES */
     @media (max-width: 600px) {
+
+      header {
+        height: auto;            /* allow it to grow */
+        padding: 14px 16px;      /* smaller padding */
+        flex-direction: column;  /* stack logo + nav */
+        align-items: flex-start; /* align to left */
+        gap: 10px;
+      }
+
+      .logo-area {
+        font-size: 18px;
+        white-space: normal;     /* allow wrapping */
+        line-height: 1.2;
+      }
+
+      .logo svg {
+        width: 38px;
+        height: 38px;
+      }
+
+      nav {
+        margin-left: 0;
+        width: 100%;
+        gap: 14px;
+        justify-content: flex-start;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 10px 12px;      /* big tap targets */
+        background: rgba(255,255,255,0.35);
+        border-radius: 12px;
+      }
+
+      main {
+        padding: 28px 14px;
+      }
+
+      .hero img {
+        max-width: 100%;
+        border-radius: 18px;
+        margin-bottom: 20px;
+      }
+
       .tagline {
         font-size: 22px;
       }
+
       .counter {
         font-size: 16px;
       }
@@ -132,7 +186,7 @@
 
 <body>
 
-  <!-- 🔹 HEADER (UNCHANGED) -->
+  <!-- 🔹 HEADER -->
   <header>
     <div class="logo-area">
       <div class="logo">
@@ -160,8 +214,8 @@
   <main>
     <div class="hero">
 
-      <!-- 📸 IMAGE (PATH FIXED) -->
-      <img src="coupleacrossborders/wadowice.jpeg" alt="Couple Across Borders" />
+      <!-- 📸 IMAGE -->
+      <img src="wadowice.jpeg" alt="Couple Across Borders">
 
       <!-- 💙 TAGLINE -->
       <div class="tagline">
@@ -192,9 +246,9 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
       document.getElementById("counter").innerHTML =
-        `Together for <strong>${days}</strong> days, 
-         <strong>${hours}</strong> hours, 
-         <strong>${minutes}</strong> minutes, 
+        `Together for <strong>${days}</strong> days,
+         <strong>${hours}</strong> hours,
+         <strong>${minutes}</strong> minutes,
          <strong>${seconds}</strong> seconds`;
     }
 
