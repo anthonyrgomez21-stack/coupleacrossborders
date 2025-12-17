@@ -16,10 +16,7 @@
   </svg>"/>
 
   <!-- 🗺️ LEAFLET MAP -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
@@ -68,8 +65,9 @@
     nav {
       margin-left: auto;
       display: flex;
-      gap: 28px;
+      gap: 18px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     nav a {
@@ -78,6 +76,35 @@
       font-weight: 500;
       font-size: 15px;
       padding: 6px 0;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      margin-left: 10px;
+    }
+
+    .lang-toggle button {
+      border: 1px solid rgba(43,93,125,0.35);
+      background: rgba(255,255,255,0.45);
+      color: var(--deep-blue);
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .lang-toggle button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(43,93,125,0.6);
+      font-weight: 700;
     }
 
     /* MAIN */
@@ -185,6 +212,40 @@
       opacity: 0.9;
     }
 
+        /* POLAND + COUNTDOWN (STACKED) */
+    .together-section {
+      max-width: 720px;
+      margin: 42px auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      background: rgba(255,255,255,0.55);
+      padding: 26px;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+
+    .poland-img {
+      width: 260px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    .together-countdown h2 {
+      font-size: 22px;
+      color: var(--deep-blue);
+      margin-bottom: 8px;
+    }
+
+    .together-countdown p {
+      font-size: 18px;
+      color: var(--text-gray);
+    }
+
+
+
     /* MOBILE */
     @media (max-width: 600px) {
       header {
@@ -196,7 +257,7 @@
 
       nav {
         width: 100%;
-        gap: 14px;
+        gap: 10px;
       }
 
       nav a {
@@ -204,6 +265,10 @@
         padding: 10px 12px;
         background: rgba(255,255,255,0.35);
         border-radius: 12px;
+      }
+
+      .lang-toggle {
+        margin-left: 0;
       }
 
       main {
@@ -250,9 +315,14 @@
   </div>
 
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Our Story</a>
-    <a href="#">Blogs</a>
+    <a href="#" id="navHome">Home</a>
+    <a href="#" id="navStory">Our Story</a>
+    <a href="#" id="navBlogs">Blogs</a>
+
+    <div class="lang-toggle" aria-label="Language Toggle">
+      <button id="btnEN" type="button" onclick="setLang('en')">EN</button>
+      <button id="btnPL" type="button" onclick="setLang('pl')">PL</button>
+    </div>
   </nav>
 </header>
 
@@ -261,7 +331,9 @@
 
     <img src="wadowice.jpeg" alt="Couple Across Borders">
 
-    <div class="tagline">Building a life across borders.</div>
+    <div class="tagline" id="tagline">
+      Building a life across borders.
+    </div>
 
     <div class="counter" id="counter">
       Together for <strong>loading…</strong>
@@ -269,31 +341,14 @@
 
     <!-- TIMELINE -->
     <div class="timeline">
-      <div class="timeline-title">Our Timeline</div>
+      <div class="timeline-title" id="timelineTitle">Our Timeline</div>
 
-      <div class="timeline-entry">
-        — <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.
-      </div>
-
-      <div class="timeline-entry">
-        — <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.
-      </div>
-
-      <div class="timeline-entry">
-        — <strong>July 24, 2025</strong> · I returned to America, turning our relationship into long distance — separated by borders, time zones, and thousands of miles.
-      </div>
-
-      <div class="timeline-entry">
-        — <strong>November 21, 2025</strong> · After months apart, she came to America for the first time. We reunited and shared our first life together on the same side of the ocean.
-      </div>
-
-      <div class="timeline-entry">
-        — <strong>November 30, 2025</strong> · On her birthday, she returned to Poland, and long distance began once again.
-      </div>
-
-      <div class="timeline-entry">
-        — <strong>January 1, 2026</strong> · On New Year’s Day, we reunite — beginning a winter together that will last until <strong>March 27, 2026</strong>.
-      </div>
+      <div class="timeline-entry" id="t1"></div>
+      <div class="timeline-entry" id="t2"></div>
+      <div class="timeline-entry" id="t3"></div>
+      <div class="timeline-entry" id="t4"></div>
+      <div class="timeline-entry" id="t5"></div>
+      <div class="timeline-entry" id="t6"></div>
     </div>
 
     <!-- MAP -->
@@ -301,19 +356,82 @@
       <div id="map"></div>
 
       <div class="map-buttons">
-        <button onclick="goToLocation(50.0547315, 19.9383911, 'Our first kiss')">
+        <button id="btnKiss" type="button" onclick="goToKiss()">
           Our first kiss 💙
         </button>
-        <button onclick="goToLocation(51.1146870, 17.0350156, 'We became a couple')">
+        <button id="btnCouple" type="button" onclick="goToCouple()">
           We became a couple ❤️
         </button>
       </div>
     </div>
 
+        <!-- POLAND + COUNTDOWN UNTIL TOGETHER -->
+    <div class="together-section">
+      <img src="polska.png" alt="Couple Across Borders" class="poland-img">
+
+      <div class="together-countdown">
+        <h2>Countdown Until Together</h2>
+        <p id="togetherCountdown">Loading…</p>
+      </div>
+    </div>
+
+
+
   </div>
 </main>
 
 <script>
+  // -------------------------
+  // TRANSLATIONS
+  // -------------------------
+  const i18n = {
+    en: {
+      navHome: "Home",
+      navStory: "Our Story",
+      navBlogs: "Blogs",
+      tagline: "Building a life across borders.",
+      togetherFor: "Together for",
+      units: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
+      timelineTitle: "Our Timeline",
+      t1: "— <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.",
+      t2: "— <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.",
+      t3: "— <strong>July 24, 2025</strong> · I returned to America, turning our relationship into long distance — separated by borders, time zones, and thousands of miles.",
+      t4: "— <strong>November 21, 2025</strong> · After months apart, she came to America for the first time. We reunited and shared our first life together on the same side of the ocean.",
+      t5: "— <strong>November 30, 2025</strong> · On her birthday, she returned to Poland, and long distance began once again.",
+      t6: "— <strong>January 1, 2026</strong> · On New Year’s Day, we reunite — beginning a winter together that will last until <strong>March 27, 2026</strong>.",
+      mapDefaultPopup: "Kraków, Poland",
+      btnKiss: "Our first kiss 💙",
+      btnCouple: "We became a couple ❤️",
+      popupKiss: "Our first kiss",
+      popupCouple: "We became a couple"
+    },
+    pl: {
+      navHome: "Strona główna",
+      navStory: "Nasza historia",
+      navBlogs: "Blog",
+      tagline: "Budujemy życie ponad granicami.",
+      togetherFor: "Jesteśmy razem od",
+      units: { days: "dni", hours: "godzin", minutes: "minut", seconds: "sekund" },
+      timelineTitle: "Nasza oś czasu",
+      t1: "— <strong>15 lipca 2025</strong> · Spotkaliśmy się na żywo po raz pierwszy. Zwykła randka szybko zamieniła się w coś, czego żadne z nas się nie spodziewało.",
+      t2: "— <strong>20 lipca 2025</strong> · Kilka dni później wybraliśmy siebie i oficjalnie zostaliśmy parą.",
+      t3: "— <strong>24 lipca 2025</strong> · Wróciłem do USA — i wtedy zaczęła się nasza relacja na odległość: granice, strefy czasowe i tysiące kilometrów między nami.",
+      t4: "— <strong>21 listopada 2025</strong> · Po miesiącach rozłąki przyleciała do USA po raz pierwszy. Znów byliśmy razem — w końcu po tej samej stronie oceanu.",
+      t5: "— <strong>30 listopada 2025</strong> · W dniu swoich urodzin wróciła do Polski, a dystans zaczął się na nowo.",
+      t6: "— <strong>1 stycznia 2026</strong> · W Nowy Rok znów się spotykamy — zaczynając wspólną zimę, która potrwa do <strong>27 marca 2026</strong>.",
+      mapDefaultPopup: "Kraków, Polska",
+      btnKiss: "Pierwszy pocałunek 💙",
+      btnCouple: "Zostaliśmy parą ❤️",
+      popupKiss: "Pierwszy pocałunek",
+      popupCouple: "Zostaliśmy parą"
+    }
+  };
+
+  let currentLang = localStorage.getItem("cab_lang") || "en";
+
+  // -------------------------
+  // COUNTER
+  // -------------------------
   const startDate = new Date("2025-07-20T22:30:00");
 
   function updateCounter() {
@@ -326,43 +444,120 @@
     const hours = Math.floor(diff / 3600000) % 24;
     const days = Math.floor(diff / 86400000);
 
+    const t = i18n[currentLang];
     document.getElementById("counter").innerHTML =
-      `Together for <strong>${days}</strong> days,
+      `${t.togetherFor} <strong>${days}</strong> ${t.units.days},
+       <strong>${hours}</strong> ${t.units.hours},
+       <strong>${minutes}</strong> ${t.units.minutes},
+       <strong>${seconds}</strong> ${t.units.seconds}`;
+  }
+
+  // -------------------------
+  // COUNTDOWN UNTIL TOGETHER
+  // -------------------------
+  const togetherDate = new Date("2026-01-01T00:00:00");
+
+  function updateTogetherCountdown() {
+    const now = new Date();
+    let diff = togetherDate - now;
+
+    if (diff < 0) diff = 0;
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+
+    document.getElementById("togetherCountdown").innerHTML =
+      `<strong>${days}</strong> days,
        <strong>${hours}</strong> hours,
        <strong>${minutes}</strong> minutes,
        <strong>${seconds}</strong> seconds`;
   }
 
-  updateCounter();
-  setInterval(updateCounter, 1000);
+  updateTogetherCountdown();
+  setInterval(updateTogetherCountdown, 1000);
 
+
+  // -------------------------
   // MAP
+  // -------------------------
   const map = L.map('map').setView([50.0647, 19.9450], 12);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  let marker = L.marker([50.0647, 19.9450])
-    .addTo(map)
-    .bindPopup('Kraków, Poland')
-    .openPopup();
+  let marker = L.marker([50.0647, 19.9450]).addTo(map);
+
+  // Coordinates
+  const LOC_KISS = { lat: 50.0547315, lng: 19.9383911 };
+  const LOC_COUPLE = { lat: 51.1146870, lng: 17.0350156 };
 
   function goToLocation(lat, lng, label) {
-    // Smoothly move map and FORCE center
-    map.flyTo([lat, lng], 15, {
-      animate: true,
-      duration: 1.2
-    });
+    // Keep marker centered (popup won't push it away)
+    map.flyTo([lat, lng], 15, { animate: true, duration: 1.2 });
 
-    // Move marker
     marker.setLatLng([lat, lng]);
 
-    // Set popup WITHOUT shifting the map
-    marker.bindPopup(label, {
-      autoPan: false
-    }).openPopup();
+    marker.bindPopup(label, { autoPan: false }).openPopup();
   }
+
+  function goToKiss() {
+    const t = i18n[currentLang];
+    goToLocation(LOC_KISS.lat, LOC_KISS.lng, t.popupKiss);
+  }
+
+  function goToCouple() {
+    const t = i18n[currentLang];
+    goToLocation(LOC_COUPLE.lat, LOC_COUPLE.lng, t.popupCouple);
+  }
+
+  // -------------------------
+  // LANGUAGE SETTER
+  // -------------------------
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem("cab_lang", lang);
+
+    const t = i18n[lang];
+
+    // Update document lang
+    document.documentElement.lang = lang;
+
+    // Toggle UI state
+    document.getElementById("btnEN").classList.toggle("active", lang === "en");
+    document.getElementById("btnPL").classList.toggle("active", lang === "pl");
+
+    // Text updates
+    document.getElementById("navHome").textContent = t.navHome;
+    document.getElementById("navStory").textContent = t.navStory;
+    document.getElementById("navBlogs").textContent = t.navBlogs;
+
+    document.getElementById("tagline").textContent = t.tagline;
+
+    document.getElementById("timelineTitle").textContent = t.timelineTitle;
+    document.getElementById("t1").innerHTML = t.t1;
+    document.getElementById("t2").innerHTML = t.t2;
+    document.getElementById("t3").innerHTML = t.t3;
+    document.getElementById("t4").innerHTML = t.t4;
+    document.getElementById("t5").innerHTML = t.t5;
+    document.getElementById("t6").innerHTML = t.t6;
+
+    document.getElementById("btnKiss").textContent = t.btnKiss;
+    document.getElementById("btnCouple").textContent = t.btnCouple;
+
+    // Default marker popup label for Kraków (only changes the popup text)
+    marker.bindPopup(t.mapDefaultPopup, { autoPan: false });
+
+    // Refresh counter text immediately in the chosen language
+    updateCounter();
+  }
+
+  // Init
+  setLang(currentLang);
+  updateCounter();
+  setInterval(updateCounter, 1000);
 </script>
 
 </body>
