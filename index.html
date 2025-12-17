@@ -5,17 +5,22 @@
   <title>Couple Across Borders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 🌍 FAVICON (UNCHANGED) -->
+  <!-- 🌍 FAVICON -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
     <circle cx='50' cy='50' r='45' fill='%239ad6f5'/>
-    <path d='M50 70
-             C20 45, 35 25, 50 35
-             C65 25, 80 45, 50 70Z'
+    <path d='M50 70 C20 45, 35 25, 50 35 C65 25, 80 45, 50 70Z'
           fill='%23ffffff'/>
     <circle cx='40' cy='45' r='4' fill='%239ad6f5'/>
     <circle cx='60' cy='45' r='4' fill='%239ad6f5'/>
   </svg>"/>
+
+  <!-- 🗺️ LEAFLET MAP -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
     :root {
@@ -36,13 +41,12 @@
       min-height: 100vh;
     }
 
-    /* 🔹 HEADER */
+    /* HEADER */
     header {
       background: var(--globe-blue);
-      height: 80px;
       display: flex;
       align-items: center;
-      padding: 0 40px;
+      padding: 18px 40px;
       gap: 18px;
     }
 
@@ -59,7 +63,6 @@
     .logo svg {
       width: 42px;
       height: 42px;
-      flex: 0 0 auto;
     }
 
     nav {
@@ -67,7 +70,6 @@
       display: flex;
       gap: 28px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     nav a {
@@ -75,17 +77,12 @@
       color: var(--deep-blue);
       font-weight: 500;
       font-size: 15px;
-      transition: opacity 0.2s ease;
-      padding: 6px 0; /* better tap area */
+      padding: 6px 0;
     }
 
-    nav a:hover {
-      opacity: 0.7;
-    }
-
-    /* 🔹 MAIN CONTENT */
+    /* MAIN */
     main {
-      padding: 48px 20px;
+      padding: 48px 20px 72px;
       display: flex;
       justify-content: center;
     }
@@ -103,7 +100,6 @@
       box-shadow: 0 14px 35px rgba(0,0,0,0.15);
       margin: 0 auto 28px;
       display: block;
-      object-fit: cover;
     }
 
     .tagline {
@@ -111,66 +107,107 @@
       color: var(--deep-blue);
       font-weight: 600;
       margin-bottom: 18px;
-      padding: 0 6px;
     }
 
     .counter {
       font-size: 18px;
       color: var(--text-gray);
-      letter-spacing: 0.3px;
-      padding: 0 10px;
-      line-height: 1.45;
+      line-height: 1.5;
+      margin-bottom: 56px;
     }
 
     .counter strong {
       color: var(--deep-blue);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      max-width: 720px;
+      margin: 0 auto 56px;
+      text-align: left;
+    }
+
+    .timeline-title {
+      font-size: 24px;
+      color: var(--deep-blue);
+      font-weight: 600;
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    .timeline-entry {
+      font-size: 17px;
+      color: var(--text-gray);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .timeline-entry strong {
+      color: var(--deep-blue);
       font-weight: 600;
     }
 
-    /* ✅ MOBILE FIXES */
-    @media (max-width: 600px) {
+    /* MAP */
+    .map-section {
+      max-width: 720px;
+      margin: 0 auto;
+    }
 
+    #map {
+      width: 100%;
+      height: 360px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      margin-bottom: 18px;
+    }
+
+    .map-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .map-buttons button {
+      background: var(--globe-blue);
+      color: var(--deep-blue);
+      border: none;
+      padding: 10px 18px;
+      font-size: 14.5px;
+      font-weight: 500;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .map-buttons button:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
       header {
-        height: auto;            /* allow it to grow */
-        padding: 14px 16px;      /* smaller padding */
-        flex-direction: column;  /* stack logo + nav */
-        align-items: flex-start; /* align to left */
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
       }
 
-      .logo-area {
-        font-size: 18px;
-        white-space: normal;     /* allow wrapping */
-        line-height: 1.2;
-      }
-
-      .logo svg {
-        width: 38px;
-        height: 38px;
-      }
-
       nav {
-        margin-left: 0;
         width: 100%;
         gap: 14px;
-        justify-content: flex-start;
       }
 
       nav a {
         font-size: 14px;
-        padding: 10px 12px;      /* big tap targets */
+        padding: 10px 12px;
         background: rgba(255,255,255,0.35);
         border-radius: 12px;
       }
 
       main {
-        padding: 28px 14px;
-      }
-
-      .hero img {
-        max-width: 100%;
-        border-radius: 18px;
-        margin-bottom: 20px;
+        padding: 28px 14px 56px;
       }
 
       .tagline {
@@ -180,81 +217,153 @@
       .counter {
         font-size: 16px;
       }
+
+      .timeline-title {
+        font-size: 21px;
+      }
+
+      .timeline-entry {
+        font-size: 15.5px;
+      }
+
+      #map {
+        height: 300px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔹 HEADER -->
-  <header>
-    <div class="logo-area">
-      <div class="logo">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" fill="#ffffff"/>
-          <path d="M50 70
-                   C20 45, 35 25, 50 35
-                   C65 25, 80 45, 50 70Z"
-                fill="#9ad6f5"/>
-          <circle cx="40" cy="45" r="4" fill="#ffffff"/>
-          <circle cx="60" cy="45" r="4" fill="#ffffff"/>
-        </svg>
-      </div>
-      Couple Across Borders
+<header>
+  <div class="logo-area">
+    <div class="logo">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="#ffffff"/>
+        <path d="M50 70 C20 45, 35 25, 50 35 C65 25, 80 45, 50 70Z"
+              fill="#9ad6f5"/>
+        <circle cx="40" cy="45" r="4" fill="#ffffff"/>
+        <circle cx="60" cy="45" r="4" fill="#ffffff"/>
+      </svg>
+    </div>
+    Couple Across Borders
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Our Story</a>
+    <a href="#">Blogs</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+
+    <img src="wadowice.jpeg" alt="Couple Across Borders">
+
+    <div class="tagline">Building a life across borders.</div>
+
+    <div class="counter" id="counter">
+      Together for <strong>loading…</strong>
     </div>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Our Story</a>
-      <a href="#">Blogs</a>
-    </nav>
-  </header>
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <div class="timeline-title">Our Timeline</div>
 
-  <!-- 🔹 MAIN -->
-  <main>
-    <div class="hero">
-
-      <!-- 📸 IMAGE -->
-      <img src="wadowice.jpeg" alt="Couple Across Borders">
-
-      <!-- 💙 TAGLINE -->
-      <div class="tagline">
-        Building a life across borders.
+      <div class="timeline-entry">
+        — <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.
       </div>
 
-      <!-- ⏱️ REAL-TIME COUNTER -->
-      <div class="counter" id="counter">
-        Together for <strong>loading…</strong>
+      <div class="timeline-entry">
+        — <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.
       </div>
 
+      <div class="timeline-entry">
+        — <strong>July 24, 2025</strong> · I returned to America, turning our relationship into long distance — separated by borders, time zones, and thousands of miles.
+      </div>
+
+      <div class="timeline-entry">
+        — <strong>November 21, 2025</strong> · After months apart, she came to America for the first time. We reunited and shared our first life together on the same side of the ocean.
+      </div>
+
+      <div class="timeline-entry">
+        — <strong>November 30, 2025</strong> · On her birthday, she returned to Poland, and long distance began once again.
+      </div>
+
+      <div class="timeline-entry">
+        — <strong>January 1, 2026</strong> · On New Year’s Day, we reunite — beginning a winter together that will last until <strong>March 27, 2026</strong>.
+      </div>
     </div>
-  </main>
 
-  <!-- ⏱️ COUNTER SCRIPT -->
-  <script>
-    const startDate = new Date("2025-07-20T22:30:00");
+    <!-- MAP -->
+    <div class="map-section">
+      <div id="map"></div>
 
-    function updateCounter() {
-      const now = new Date();
-      let diff = now - startDate;
+      <div class="map-buttons">
+        <button onclick="goToLocation(50.0547315, 19.9383911, 'Our first kiss')">
+          Our first kiss 💙
+        </button>
+        <button onclick="goToLocation(51.1146870, 17.0350156, 'We became a couple')">
+          We became a couple ❤️
+        </button>
+      </div>
+    </div>
 
-      if (diff < 0) diff = 0;
+  </div>
+</main>
 
-      const seconds = Math.floor(diff / 1000) % 60;
-      const minutes = Math.floor(diff / (1000 * 60)) % 60;
-      const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+<script>
+  const startDate = new Date("2025-07-20T22:30:00");
 
-      document.getElementById("counter").innerHTML =
-        `Together for <strong>${days}</strong> days,
-         <strong>${hours}</strong> hours,
-         <strong>${minutes}</strong> minutes,
-         <strong>${seconds}</strong> seconds`;
-    }
+  function updateCounter() {
+    const now = new Date();
+    let diff = now - startDate;
+    if (diff < 0) diff = 0;
 
-    updateCounter();
-    setInterval(updateCounter, 1000);
-  </script>
+    const seconds = Math.floor(diff / 1000) % 60;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const hours = Math.floor(diff / 3600000) % 24;
+    const days = Math.floor(diff / 86400000);
+
+    document.getElementById("counter").innerHTML =
+      `Together for <strong>${days}</strong> days,
+       <strong>${hours}</strong> hours,
+       <strong>${minutes}</strong> minutes,
+       <strong>${seconds}</strong> seconds`;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  // MAP
+  const map = L.map('map').setView([50.0647, 19.9450], 12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  let marker = L.marker([50.0647, 19.9450])
+    .addTo(map)
+    .bindPopup('Kraków, Poland')
+    .openPopup();
+
+  function goToLocation(lat, lng, label) {
+    // Smoothly move map and FORCE center
+    map.flyTo([lat, lng], 15, {
+      animate: true,
+      duration: 1.2
+    });
+
+    // Move marker
+    marker.setLatLng([lat, lng]);
+
+    // Set popup WITHOUT shifting the map
+    marker.bindPopup(label, {
+      autoPan: false
+    }).openPopup();
+  }
+</script>
 
 </body>
 </html>
