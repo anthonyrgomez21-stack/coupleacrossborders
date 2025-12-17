@@ -381,51 +381,70 @@
 </main>
 
 <script>
-  // -------------------------
-  // TRANSLATIONS
-  // -------------------------
-  const i18n = {
-    en: {
-      navHome: "Home",
-      navStory: "Our Story",
-      navBlogs: "Blogs",
-      tagline: "Building a life across borders.",
-      togetherFor: "Together for",
-      units: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
-      timelineTitle: "Our Timeline",
-      t1: "— <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.",
-      t2: "— <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.",
-      t3: "— <strong>July 24, 2025</strong> · I returned to America, turning our relationship into long distance — separated by borders, time zones, and thousands of miles.",
-      t4: "— <strong>November 21, 2025</strong> · After months apart, she came to America for the first time. We reunited and shared our first life together on the same side of the ocean.",
-      t5: "— <strong>November 30, 2025</strong> · On her birthday, she returned to Poland, and long distance began once again.",
-      t6: "— <strong>January 1, 2026</strong> · On New Year’s Day, we reunite — beginning a winter together that will last until <strong>March 27, 2026</strong>.",
-      mapDefaultPopup: "Kraków, Poland",
-      btnKiss: "Our first kiss 💙",
-      btnCouple: "We became a couple ❤️",
-      popupKiss: "Our first kiss",
-      popupCouple: "We became a couple"
+// -------------------------
+// TRANSLATIONS
+// -------------------------
+const i18n = {
+  en: {
+    navHome: "Home",
+    navStory: "Our Story",
+    navBlogs: "Blogs",
+    tagline: "Building a life across borders.",
+    togetherFor: "Together for",
+    units: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
+
+    countdownTitle: "Countdown Until Together",
+    countdownUnits: {
+      days: "days",
+      hours: "hours",
+      minutes: "minutes",
+      seconds: "seconds"
     },
-    pl: {
-      navHome: "Strona główna",
-      navStory: "Nasza historia",
-      navBlogs: "Blog",
-      tagline: "Budujemy życie ponad granicami.",
-      togetherFor: "Jesteśmy razem od",
-      units: { days: "dni", hours: "godzin", minutes: "minut", seconds: "sekund" },
-      timelineTitle: "Nasza oś czasu",
-      t1: "— <strong>15 lipca 2025</strong> · Spotkaliśmy się na żywo po raz pierwszy. Zwykła randka szybko zamieniła się w coś, czego żadne z nas się nie spodziewało.",
-      t2: "— <strong>20 lipca 2025</strong> · Kilka dni później wybraliśmy siebie i oficjalnie zostaliśmy parą.",
-      t3: "— <strong>24 lipca 2025</strong> · Wróciłem do USA — i wtedy zaczęła się nasza relacja na odległość: granice, strefy czasowe i tysiące kilometrów między nami.",
-      t4: "— <strong>21 listopada 2025</strong> · Po miesiącach rozłąki przyleciała do USA po raz pierwszy. Znów byliśmy razem — w końcu po tej samej stronie oceanu.",
-      t5: "— <strong>30 listopada 2025</strong> · W dniu swoich urodzin wróciła do Polski, a dystans zaczął się na nowo.",
-      t6: "— <strong>1 stycznia 2026</strong> · W Nowy Rok znów się spotykamy — zaczynając wspólną zimę, która potrwa do <strong>27 marca 2026</strong>.",
-      mapDefaultPopup: "Kraków, Polska",
-      btnKiss: "Pierwszy pocałunek 💙",
-      btnCouple: "Zostaliśmy parą ❤️",
-      popupKiss: "Pierwszy pocałunek",
-      popupCouple: "Zostaliśmy parą"
-    }
-  };
+
+    timelineTitle: "Our Timeline",
+    t1: "— <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.",
+    t2: "— <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.",
+    t3: "— <strong>July 24, 2025</strong> · I returned to America, turning our relationship into long distance — separated by borders, time zones, and thousands of miles.",
+    t4: "— <strong>November 21, 2025</strong> · After months apart, she came to America for the first time. We reunited and shared our first life together on the same side of the ocean.",
+    t5: "— <strong>November 30, 2025</strong> · On her birthday, she returned to Poland, and long distance began once again.",
+    t6: "— <strong>January 1, 2026</strong> · On New Year’s Day, we reunite — beginning a winter together that will last until <strong>March 27, 2026</strong>.",
+    mapDefaultPopup: "Kraków, Poland",
+    btnKiss: "Our first kiss 💙",
+    btnCouple: "We became a couple ❤️",
+    popupKiss: "Our first kiss",
+    popupCouple: "We became a couple"
+  },
+
+  pl: {
+    navHome: "Strona główna",
+    navStory: "Nasza historia",
+    navBlogs: "Blog",
+    tagline: "Budujemy życie ponad granicami.",
+    togetherFor: "Jesteśmy razem od",
+    units: { days: "dni", hours: "godzin", minutes: "minut", seconds: "sekund" },
+
+    countdownTitle: "Odliczanie do ponownego spotkania",
+    countdownUnits: {
+      days: "dni",
+      hours: "godzin",
+      minutes: "minut",
+      seconds: "sekund"
+    },
+
+    timelineTitle: "Nasza oś czasu",
+    t1: "— <strong>15 lipca 2025</strong> · Spotkaliśmy się na żywo po raz pierwszy. Zwykła randka szybko zamieniła się w coś, czego żadne z nas się nie spodziewało.",
+    t2: "— <strong>20 lipca 2025</strong> · Kilka dni później wybraliśmy siebie i oficjalnie zostaliśmy parą.",
+    t3: "— <strong>24 lipca 2025</strong> · Wróciłem do USA — i wtedy zaczęła się nasza relacja na odległość: granice, strefy czasowe i tysiące kilometrów między nami.",
+    t4: "— <strong>21 listopada 2025</strong> · Po miesiącach rozłąki przyleciała do USA po raz pierwszy. Znów byliśmy razem — w końcu po tej samej stronie oceanu.",
+    t5: "— <strong>30 listopada 2025</strong> · W dniu swoich urodzin wróciła do Polski, a dystans zaczął się na nowo.",
+    t6: "— <strong>1 stycznia 2026</strong> · W Nowy Rok znów się spotykamy — zaczynając wspólną zimę, która potrwa do <strong>27 marca 2026</strong>.",
+    mapDefaultPopup: "Kraków, Polska",
+    btnKiss: "Pierwszy pocałunek 💙",
+    btnCouple: "Zostaliśmy parą ❤️",
+    popupKiss: "Pierwszy pocałunek",
+    popupCouple: "Zostaliśmy parą"
+  }
+};
 
   let currentLang = localStorage.getItem("cab_lang") || "en";
 
@@ -453,30 +472,29 @@
   }
 
   // -------------------------
-  // COUNTDOWN UNTIL TOGETHER
-  // -------------------------
-  const togetherDate = new Date("2026-01-01T00:00:00");
+// COUNTDOWN UNTIL TOGETHER
+// -------------------------
+const togetherDate = new Date("2026-01-01T00:00:00");
 
-  function updateTogetherCountdown() {
-    const now = new Date();
-    let diff = togetherDate - now;
+function updateTogetherCountdown() {
+  const now = new Date();
+  let diff = togetherDate - now;
 
-    if (diff < 0) diff = 0;
+  if (diff < 0) diff = 0;
 
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor(diff / 3600000) % 24;
-    const minutes = Math.floor(diff / 60000) % 60;
-    const seconds = Math.floor(diff / 1000) % 60;
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff / 3600000) % 24;
+  const minutes = Math.floor(diff / 60000) % 60;
+  const seconds = Math.floor(diff / 1000) % 60;
 
-    document.getElementById("togetherCountdown").innerHTML =
-      `<strong>${days}</strong> days,
-       <strong>${hours}</strong> hours,
-       <strong>${minutes}</strong> minutes,
-       <strong>${seconds}</strong> seconds`;
-  }
+  const u = i18n[currentLang].countdownUnits;
 
-  updateTogetherCountdown();
-  setInterval(updateTogetherCountdown, 1000);
+  document.getElementById("togetherCountdown").innerHTML =
+    `<strong>${days}</strong> ${u.days},
+     <strong>${hours}</strong> ${u.hours},
+     <strong>${minutes}</strong> ${u.minutes},
+     <strong>${seconds}</strong> ${u.seconds}`;
+}
 
 
   // -------------------------
@@ -514,50 +532,56 @@
   }
 
   // -------------------------
-  // LANGUAGE SETTER
-  // -------------------------
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem("cab_lang", lang);
+// LANGUAGE SETTER
+// -------------------------
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("cab_lang", lang);
 
-    const t = i18n[lang];
+  const t = i18n[lang];
 
-    // Update document lang
-    document.documentElement.lang = lang;
+  // Update document lang
+  document.documentElement.lang = lang;
 
-    // Toggle UI state
-    document.getElementById("btnEN").classList.toggle("active", lang === "en");
-    document.getElementById("btnPL").classList.toggle("active", lang === "pl");
+  // Toggle UI state
+  document.getElementById("btnEN").classList.toggle("active", lang === "en");
+  document.getElementById("btnPL").classList.toggle("active", lang === "pl");
 
-    // Text updates
-    document.getElementById("navHome").textContent = t.navHome;
-    document.getElementById("navStory").textContent = t.navStory;
-    document.getElementById("navBlogs").textContent = t.navBlogs;
+  // Text updates
+  document.getElementById("navHome").textContent = t.navHome;
+  document.getElementById("navStory").textContent = t.navStory;
+  document.getElementById("navBlogs").textContent = t.navBlogs;
 
-    document.getElementById("tagline").textContent = t.tagline;
+  document.getElementById("tagline").textContent = t.tagline;
 
-    document.getElementById("timelineTitle").textContent = t.timelineTitle;
-    document.getElementById("t1").innerHTML = t.t1;
-    document.getElementById("t2").innerHTML = t.t2;
-    document.getElementById("t3").innerHTML = t.t3;
-    document.getElementById("t4").innerHTML = t.t4;
-    document.getElementById("t5").innerHTML = t.t5;
-    document.getElementById("t6").innerHTML = t.t6;
+  document.getElementById("timelineTitle").textContent = t.timelineTitle;
+  document.getElementById("t1").innerHTML = t.t1;
+  document.getElementById("t2").innerHTML = t.t2;
+  document.getElementById("t3").innerHTML = t.t3;
+  document.getElementById("t4").innerHTML = t.t4;
+  document.getElementById("t5").innerHTML = t.t5;
+  document.getElementById("t6").innerHTML = t.t6;
 
-    document.getElementById("btnKiss").textContent = t.btnKiss;
-    document.getElementById("btnCouple").textContent = t.btnCouple;
+  document.getElementById("btnKiss").textContent = t.btnKiss;
+  document.getElementById("btnCouple").textContent = t.btnCouple;
 
-    // Default marker popup label for Kraków (only changes the popup text)
-    marker.bindPopup(t.mapDefaultPopup, { autoPan: false });
+  // Countdown title (NEW)
+  document.querySelector(".together-countdown h2").textContent = t.countdownTitle;
 
-    // Refresh counter text immediately in the chosen language
-    updateCounter();
-  }
+  // Default marker popup label for Kraków
+  marker.bindPopup(t.mapDefaultPopup, { autoPan: false });
 
-  // Init
-  setLang(currentLang);
+  // Refresh counters immediately
   updateCounter();
-  setInterval(updateCounter, 1000);
+  updateTogetherCountdown();
+}
+
+// Init
+setLang(currentLang);
+updateCounter();
+updateTogetherCountdown();
+setInterval(updateCounter, 1000);
+
 </script>
 
 </body>
