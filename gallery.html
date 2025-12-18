@@ -34,7 +34,7 @@
       min-height: 100vh;
     }
 
-    /* HEADER (SAME AS INDEX) */
+    /* HEADER */
     header {
       background: var(--globe-blue);
       display: flex;
@@ -124,14 +124,17 @@
 
     .gallery-grid img {
       width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       border-radius: 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.15);
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .gallery-grid img:hover {
-      transform: scale(1.03);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
     }
 
     /* MOBILE */
@@ -187,12 +190,31 @@
     <h1>Our Gallery</h1>
 
     <div class="gallery-grid">
-      <!-- Replace with your real images -->
-      <img src="images/photo1.jpg" alt="">
-      <img src="images/photo2.jpg" alt="">
-      <img src="images/photo3.jpg" alt="">
-      <img src="images/photo4.jpg" alt="">
-      <img src="images/photo5.jpg" alt="">
+      <img src="pic1.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic2.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic3.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic4.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic5.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic6.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic7.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic8.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic9.jpeg"  alt="Couple Across Borders" loading="lazy">
+      <img src="pic10.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic11.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic12.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic13.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic14.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic15.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic16.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic17.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic18.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic19.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic20.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic21.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic22.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic23.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic24.jpeg" alt="Couple Across Borders" loading="lazy">
+      <img src="pic25.jpeg" alt="Couple Across Borders" loading="lazy">
     </div>
   </div>
 </main>
