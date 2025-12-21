@@ -212,7 +212,7 @@
       opacity: 0.9;
     }
 
-        /* POLAND + COUNTDOWN (STACKED) */
+    /* POLAND + COUNTDOWN (STACKED) */
     .together-section {
       max-width: 720px;
       margin: 42px auto 0;
@@ -244,9 +244,159 @@
       color: var(--text-gray);
     }
 
+    /* 💙 LOVE STATUS + SETTINGS */
+    .status-section {
+      max-width: 720px;
+      margin: 42px auto 0;
+      background: rgba(255,255,255,0.55);
+      padding: 26px;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+      text-align: center;
+    }
 
+    .status-title {
+      font-size: 22px;
+      color: var(--deep-blue);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
 
-    /* MOBILE */
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .status-card {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(43,93,125,0.16);
+      border-radius: 18px;
+      padding: 14px;
+      text-align: left;
+    }
+
+    .status-name {
+      font-weight: 700;
+      color: var(--deep-blue);
+      margin-bottom: 6px;
+    }
+
+    .status-line {
+      font-size: 16px;
+      color: var(--text-gray);
+      margin-bottom: 6px;
+    }
+
+    .status-sub {
+      font-size: 13px;
+      color: rgba(85,85,85,0.85);
+    }
+
+    .distance-line {
+      margin-top: 6px;
+      font-size: 16px;
+      color: var(--text-gray);
+    }
+
+    .settings-btn {
+      margin-top: 14px;
+      background: var(--globe-blue);
+      color: var(--deep-blue);
+      border: none;
+      padding: 10px 16px;
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .settings-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0,0,0,0.35);
+      z-index: 9999;
+    }
+
+    .modal-backdrop.show { display: flex; }
+
+    .modal {
+      width: 100%;
+      max-width: 620px;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 14px 16px;
+      background: rgba(154,214,245,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-weight: 800;
+      color: var(--deep-blue);
+    }
+
+    .modal-close {
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--deep-blue);
+    }
+
+    .modal-body { padding: 16px; }
+
+    .row { margin-bottom: 12px; display: grid; gap: 8px; }
+    .row label { font-size: 13px; color: var(--deep-blue); font-weight: 700; }
+    .row input, .row select {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(43,93,125,0.22);
+      outline: none;
+      font-size: 14px;
+    }
+
+    .row button {
+      background: var(--globe-blue);
+      color: var(--deep-blue);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .row button.ghost {
+      background: rgba(43,93,125,0.08);
+    }
+
+    .row.two {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(85,85,85,0.85);
+    }
+
     @media (max-width: 600px) {
       header {
         padding: 14px 16px;
@@ -267,33 +417,17 @@
         border-radius: 12px;
       }
 
-      .lang-toggle {
-        margin-left: 0;
-      }
+      .lang-toggle { margin-left: 0; }
+      main { padding: 28px 14px 56px; }
 
-      main {
-        padding: 28px 14px 56px;
-      }
+      .tagline { font-size: 22px; }
+      .counter { font-size: 16px; }
+      .timeline-title { font-size: 21px; }
+      .timeline-entry { font-size: 15.5px; }
+      #map { height: 300px; }
 
-      .tagline {
-        font-size: 22px;
-      }
-
-      .counter {
-        font-size: 16px;
-      }
-
-      .timeline-title {
-        font-size: 21px;
-      }
-
-      .timeline-entry {
-        font-size: 15.5px;
-      }
-
-      #map {
-        height: 300px;
-      }
+      .status-grid { grid-template-columns: 1fr; }
+      .row.two { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -314,17 +448,16 @@
     Couple Across Borders
   </div>
 
+  <!-- ✅ FIXED: single nav (no nested nav) -->
   <nav>
-    <nav>
-  <a href="index.html" id="navHome">Home</a>
-  <a href="index.html#story" id="navStory">Our Story</a>
-  <a href="gallery.html" id="navGallery">Gallery</a>
-  <a href="#" id="navBlogs">Blogs</a>
-
+    <a href="index.html" id="navHome">Home</a>
+    <a href="index.html#story" id="navStory">Our Story</a>
+    <a href="gallery.html" id="navGallery">Gallery</a>
+    <a href="#" id="navBlogs">Blogs</a>
 
     <div class="lang-toggle" aria-label="Language Toggle">
-      <button id="btnEN" type="button" onclick="setLang('en')">EN</button>
-      <button id="btnPL" type="button" onclick="setLang('pl')">PL</button>
+      <button id="btnEN" type="button">EN</button>
+      <button id="btnPL" type="button">PL</button>
     </div>
   </nav>
 </header>
@@ -334,9 +467,7 @@
 
     <img src="wadowice.jpeg" alt="Couple Across Borders">
 
-    <div class="tagline" id="tagline">
-      Building a life across borders.
-    </div>
+    <div class="tagline" id="tagline">Building a life across borders.</div>
 
     <div class="counter" id="counter">
       Together for <strong>loading…</strong>
@@ -345,7 +476,6 @@
     <!-- TIMELINE -->
     <div class="timeline">
       <div class="timeline-title" id="timelineTitle">Our Timeline</div>
-
       <div class="timeline-entry" id="t1"></div>
       <div class="timeline-entry" id="t2"></div>
       <div class="timeline-entry" id="t3"></div>
@@ -359,51 +489,149 @@
       <div id="map"></div>
 
       <div class="map-buttons">
-        <button id="btnKiss" type="button" onclick="goToKiss()">
-          Our first kiss 💙
-        </button>
-        <button id="btnCouple" type="button" onclick="goToCouple()">
-          We became a couple ❤️
-        </button>
+        <button id="btnKiss" type="button">Our first kiss 💙</button>
+        <button id="btnCouple" type="button">We became a couple ❤️</button>
       </div>
     </div>
 
-        <!-- POLAND + COUNTDOWN UNTIL TOGETHER -->
+    <!-- POLAND + COUNTDOWN UNTIL TOGETHER -->
     <div class="together-section">
       <img src="polska.png" alt="Couple Across Borders" class="poland-img">
 
       <div class="together-countdown">
-        <h2>Countdown Until Together</h2>
+        <h2 id="countdownTitle">Countdown Until Together</h2>
         <p id="togetherCountdown">Loading…</p>
       </div>
     </div>
 
+    <!-- 💙 LOVE STATUS + DISTANCE -->
+    <div class="status-section">
+      <div class="status-title" id="statusTitle">Us right now</div>
 
+      <div class="status-grid">
+        <div class="status-card">
+          <div class="status-name" id="meLabel">Anthony (Detroit)</div>
+          <div class="status-line" id="meStatus">Loading…</div>
+          <div class="status-sub" id="meTime">—</div>
+        </div>
+
+        <div class="status-card">
+          <div class="status-name" id="herLabel">Julia (Kraków)</div>
+          <div class="status-line" id="herStatus">Loading…</div>
+          <div class="status-sub" id="herTime">—</div>
+        </div>
+      </div>
+
+      <div class="distance-line" id="distanceLine">Distance: Loading…</div>
+
+      <button class="settings-btn" id="openSettingsBtn" type="button">Settings</button>
+    </div>
+
+    <!-- 🔐 SETTINGS MODAL -->
+    <div class="modal-backdrop" id="settingsBackdrop" aria-hidden="true">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">Couple Settings</div>
+          <button class="modal-close" id="closeSettingsBtn" type="button">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <label>Unlock code</label>
+            <input id="unlockCodeInput" type="password" placeholder="Enter code to edit">
+            <button id="unlockBtn" type="button">Unlock</button>
+          </div>
+
+          <div id="settingsFields" style="display:none;">
+
+            <div class="row">
+              <label>Together mode</label>
+              <select id="togetherMode">
+                <option value="off">Off (apart)</option>
+                <option value="on">On (together)</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <label>Next “together” date & time</label>
+              <input id="togetherDateInput" type="datetime-local">
+            </div>
+
+            <div class="row">
+              <label>Your time zone</label>
+              <input id="meTZ" type="text" value="America/Detroit">
+            </div>
+
+            <div class="row">
+              <label>Julia time zone</label>
+              <input id="herTZ" type="text" value="Europe/Warsaw">
+            </div>
+
+            <div class="row two">
+              <div>
+                <label>Your awake start (HH:MM)</label>
+                <input id="meStart" type="text" value="07:00">
+              </div>
+              <div>
+                <label>Your awake end (HH:MM)</label>
+                <input id="meEnd" type="text" value="23:59">
+              </div>
+            </div>
+
+            <div class="row two">
+              <div>
+                <label>Julia awake start (HH:MM)</label>
+                <input id="herStart" type="text" value="07:30">
+              </div>
+              <div>
+                <label>Julia awake end (HH:MM)</label>
+                <input id="herEnd" type="text" value="01:00">
+              </div>
+            </div>
+
+            <div class="row two">
+              <div>
+                <label>Your coordinates (lat,lng)</label>
+                <input id="meCoord" type="text" value="42.3314,-83.0458">
+              </div>
+              <div>
+                <label>Julia coordinates (lat,lng)</label>
+                <input id="herCoord" type="text" value="50.0647,19.9450">
+              </div>
+            </div>
+
+            <div class="row">
+              <button id="saveSettingsBtn" type="button">Save</button>
+              <button id="resetSettingsBtn" type="button" class="ghost">Reset to default</button>
+            </div>
+
+            <div class="hint">
+              Tip: “Together mode” makes distance 0 and treats your schedules as aligned.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </main>
 
 <script>
-// -------------------------
-// TRANSLATIONS
-// -------------------------
+/* -------------------------------------------------
+   i18n
+------------------------------------------------- */
 const i18n = {
   en: {
     navHome: "Home",
     navStory: "Our Story",
+    navGallery: "Gallery",
     navBlogs: "Blogs",
     tagline: "Building a life across borders.",
     togetherFor: "Together for",
     units: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
-
     countdownTitle: "Countdown Until Together",
-    countdownUnits: {
-      days: "days",
-      hours: "hours",
-      minutes: "minutes",
-      seconds: "seconds"
-    },
-
+    countdownUnits: { days: "days", hours: "hours", minutes: "minutes", seconds: "seconds" },
     timelineTitle: "Our Timeline",
     t1: "— <strong>July 15, 2025</strong> · We met in person for the very first time. What started as a simple date quickly became something neither of us expected.",
     t2: "— <strong>July 20, 2025</strong> · Just days later, we chose each other and officially became boyfriend and girlfriend.",
@@ -415,25 +643,20 @@ const i18n = {
     btnKiss: "Our first kiss 💙",
     btnCouple: "We became a couple ❤️",
     popupKiss: "Our first kiss",
-    popupCouple: "We became a couple"
+    popupCouple: "We became a couple",
+    statusTitle: "Time Difference",
+    distanceZero: "Distance: 0 km ❤️"
   },
-
   pl: {
     navHome: "Strona główna",
     navStory: "Nasza historia",
+    navGallery: "Galeria",
     navBlogs: "Blog",
     tagline: "Budujemy życie ponad granicami.",
     togetherFor: "Jesteśmy razem od",
     units: { days: "dni", hours: "godzin", minutes: "minut", seconds: "sekund" },
-
     countdownTitle: "Odliczanie do ponownego spotkania",
-    countdownUnits: {
-      days: "dni",
-      hours: "godzin",
-      minutes: "minut",
-      seconds: "sekund"
-    },
-
+    countdownUnits: { days: "dni", hours: "godzin", minutes: "minut", seconds: "sekund" },
     timelineTitle: "Nasza oś czasu",
     t1: "— <strong>15 lipca 2025</strong> · Spotkaliśmy się na żywo po raz pierwszy. Zwykła randka szybko zamieniła się w coś, czego żadne z nas się nie spodziewało.",
     t2: "— <strong>20 lipca 2025</strong> · Kilka dni później wybraliśmy siebie i oficjalnie zostaliśmy parą.",
@@ -445,45 +668,172 @@ const i18n = {
     btnKiss: "Pierwszy pocałunek 💙",
     btnCouple: "Zostaliśmy parą ❤️",
     popupKiss: "Pierwszy pocałunek",
-    popupCouple: "Zostaliśmy parą"
+    popupCouple: "Zostaliśmy parą",
+    statusTitle: "Różnica Czasu",
+    distanceZero: "Odległość: 0 km ❤️"
   }
 };
 
-  let currentLang = "en";
+let currentLang = localStorage.getItem("cab_lang") || "en";
 
-  // -------------------------
-  // COUNTER
-  // -------------------------
-  const startDate = new Date("2025-07-20T22:30:00");
-
-  function updateCounter() {
-    const now = new Date();
-    let diff = now - startDate;
-    if (diff < 0) diff = 0;
-
-    const seconds = Math.floor(diff / 1000) % 60;
-    const minutes = Math.floor(diff / 60000) % 60;
-    const hours = Math.floor(diff / 3600000) % 24;
-    const days = Math.floor(diff / 86400000);
-
-    const t = i18n[currentLang];
-    document.getElementById("counter").innerHTML =
-      `${t.togetherFor} <strong>${days}</strong> ${t.units.days},
-       <strong>${hours}</strong> ${t.units.hours},
-       <strong>${minutes}</strong> ${t.units.minutes},
-       <strong>${seconds}</strong> ${t.units.seconds}`;
+/* -------------------------------------------------
+   Settings + helpers (MUST be defined before countdown uses them)
+------------------------------------------------- */
+const DEFAULT_SETTINGS = {
+  unlockCode: "J+A2026",
+  togetherMode: "off",
+  togetherDateISO: "2026-01-01T00:00:00",
+  me: {
+    labelEN: "Anthony (Detroit)",
+    labelPL: "Anthony (Detroit)",
+    tz: "America/Detroit",
+    awakeStart: "07:00",
+    awakeEnd: "23:59",
+    coord: "42.3314,-83.0458"
+  },
+  her: {
+    labelEN: "Julia (Kraków)",
+    labelPL: "Julia (Kraków)",
+    tz: "Europe/Warsaw",
+    awakeStart: "07:30",
+    awakeEnd: "01:00",
+    coord: "50.0647,19.9450"
   }
+};
 
-  // -------------------------
-// COUNTDOWN UNTIL TOGETHER
-// -------------------------
-const togetherDate = new Date("2026-01-01T00:00:00");
+function deepClone(obj) {
+  // safer than structuredClone on older browsers
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function loadSettings() {
+  const raw = localStorage.getItem("cab_settings");
+  if (!raw) return deepClone(DEFAULT_SETTINGS);
+  try {
+    const s = JSON.parse(raw);
+    return {
+      ...deepClone(DEFAULT_SETTINGS),
+      ...s,
+      me: { ...deepClone(DEFAULT_SETTINGS.me), ...(s.me || {}) },
+      her: { ...deepClone(DEFAULT_SETTINGS.her), ...(s.her || {}) }
+    };
+  } catch {
+    return deepClone(DEFAULT_SETTINGS);
+  }
+}
+
+function saveSettings(s) {
+  localStorage.setItem("cab_settings", JSON.stringify(s));
+}
+
+function toDatetimeLocal(isoString) {
+  const d = new Date(isoString);
+  if (isNaN(d.getTime())) return "";
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function fromDatetimeLocal(localValue) {
+  const d = new Date(localValue);
+  if (isNaN(d.getTime())) return null;
+  return d.toISOString();
+}
+
+function parseHHMM(hhmm) {
+  const m = /^(\d{1,2}):(\d{2})$/.exec((hhmm || "").trim());
+  if (!m) return null;
+  const hh = Number(m[1]);
+  const mm = Number(m[2]);
+  if (hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
+  return hh * 60 + mm;
+}
+
+function isAwakeAt(timeStrHHMM, awakeStartHHMM, awakeEndHHMM) {
+  const t = parseHHMM(timeStrHHMM);
+  const start = parseHHMM(awakeStartHHMM);
+  const end = parseHHMM(awakeEndHHMM);
+  if (t === null || start === null || end === null) return null;
+
+  if (start <= end) return t >= start && t <= end;
+  return t >= start || t <= end; // overnight window
+}
+
+function getTimePartsInTZ(tz) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: tz,
+    hour12: false,
+    hour: "2-digit",
+    minute: "2-digit",
+    weekday: "short",
+    month: "short",
+    day: "2-digit"
+  }).formatToParts(new Date());
+
+  const get = (type) => parts.find(p => p.type === type)?.value || "";
+  return {
+    hhmm: `${get("hour")}:${get("minute")}`,
+    pretty: `${get("weekday")}, ${get("month")} ${get("day")} · ${get("hour")}:${get("minute")}`
+  };
+}
+
+function parseCoord(coordStr) {
+  const m = /^\s*(-?\d+(\.\d+)?)\s*,\s*(-?\d+(\.\d+)?)\s*$/.exec(coordStr || "");
+  if (!m) return null;
+  return { lat: Number(m[1]), lng: Number(m[3]) };
+}
+
+function haversineKm(a, b) {
+  const R = 6371;
+  const toRad = (x) => (x * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLon = toRad(b.lng - a.lng);
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+
+  const sinDLat = Math.sin(dLat / 2);
+  const sinDLon = Math.sin(dLon / 2);
+
+  const h = sinDLat*sinDLat + Math.cos(lat1)*Math.cos(lat2)*sinDLon*sinDLon;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+let cabSettings = loadSettings();
+
+/* -------------------------------------------------
+   Counter + Countdown
+------------------------------------------------- */
+const startDate = new Date("2025-07-20T22:30:00");
+
+function updateCounter() {
+  const now = new Date();
+  let diff = now - startDate;
+  if (diff < 0) diff = 0;
+
+  const seconds = Math.floor(diff / 1000) % 60;
+  const minutes = Math.floor(diff / 60000) % 60;
+  const hours = Math.floor(diff / 3600000) % 24;
+  const days = Math.floor(diff / 86400000);
+
+  const t = i18n[currentLang];
+  document.getElementById("counter").innerHTML =
+    `${t.togetherFor} <strong>${days}</strong> ${t.units.days},
+     <strong>${hours}</strong> ${t.units.hours},
+     <strong>${minutes}</strong> ${t.units.minutes},
+     <strong>${seconds}</strong> ${t.units.seconds}`;
+}
 
 function updateTogetherCountdown() {
   const now = new Date();
-  let diff = togetherDate - now;
+  const dateStr = (cabSettings && cabSettings.togetherDateISO) ? cabSettings.togetherDateISO : DEFAULT_SETTINGS.togetherDateISO;
+  const target = new Date(dateStr);
 
-  if (diff < 0) diff = 0;
+  if (isNaN(target.getTime())) {
+    document.getElementById("togetherCountdown").textContent = "Invalid date in settings.";
+    return;
+  }
+
+  let diff = target - now;
+  if (diff < 0) diff = 0; // ✅ stays at 0 forever
 
   const days = Math.floor(diff / 86400000);
   const hours = Math.floor(diff / 3600000) % 24;
@@ -497,62 +847,112 @@ function updateTogetherCountdown() {
      <strong>${hours}</strong> ${u.hours},
      <strong>${minutes}</strong> ${u.minutes},
      <strong>${seconds}</strong> ${u.seconds}`;
+
+  // OPTIONAL auto-toggle togetherMode when countdown hits 0
+  if (diff === 0 && cabSettings.togetherMode !== "on") {
+    cabSettings.togetherMode = "on";
+    saveSettings(cabSettings);
+    renderLoveStatus();
+  }
 }
 
+/* -------------------------------------------------
+   Love Status + Distance
+------------------------------------------------- */
+function renderLoveStatus() {
+  const lang = currentLang || "en";
 
-  // -------------------------
-  // MAP
-  // -------------------------
-  const map = L.map('map').setView([50.0647, 19.9450], 12);
+  const meLabel = (lang === "pl") ? cabSettings.me.labelPL : cabSettings.me.labelEN;
+  const herLabel = (lang === "pl") ? cabSettings.her.labelPL : cabSettings.her.labelEN;
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+  document.getElementById("meLabel").textContent = meLabel;
+  document.getElementById("herLabel").textContent = herLabel;
 
-  let marker = L.marker([50.0647, 19.9450]).addTo(map);
+  const meTZ = cabSettings.me.tz;
+  const herTZ = (cabSettings.togetherMode === "on") ? cabSettings.me.tz : cabSettings.her.tz;
 
-  // Coordinates
-  const LOC_KISS = { lat: 50.0547315, lng: 19.9383911 };
-  const LOC_COUPLE = { lat: 51.1146870, lng: 17.0350156 };
+  const meNow = getTimePartsInTZ(meTZ);
+  const herNow = getTimePartsInTZ(herTZ);
 
-  function goToLocation(lat, lng, label) {
-    // Keep marker centered (popup won't push it away)
-    map.flyTo([lat, lng], 15, { animate: true, duration: 1.2 });
+  document.getElementById("meTime").textContent = meNow.pretty;
+  document.getElementById("herTime").textContent = herNow.pretty;
 
-    marker.setLatLng([lat, lng]);
+  const meAwake = isAwakeAt(meNow.hhmm, cabSettings.me.awakeStart, cabSettings.me.awakeEnd);
+  const herAwake = isAwakeAt(herNow.hhmm, cabSettings.her.awakeStart, cabSettings.her.awakeEnd);
 
-    marker.bindPopup(label, { autoPan: false }).openPopup();
+  document.getElementById("meStatus").textContent =
+    (meAwake === null) ? "⚠️ Invalid schedule" : (meAwake ? "🟢 Probably awake" : "🌙 Likely sleeping");
+
+  document.getElementById("herStatus").textContent =
+    (herAwake === null) ? "⚠️ Invalid schedule" : (herAwake ? "🟢 Probably awake" : "🌙 Likely sleeping");
+
+  // Distance
+  let distanceText = "Distance: —";
+  if (cabSettings.togetherMode === "on") {
+    distanceText = i18n[lang].distanceZero;
+  } else {
+    const a = parseCoord(cabSettings.me.coord);
+    const b = parseCoord(cabSettings.her.coord);
+    if (a && b) {
+      const km = haversineKm(a, b);
+      const miles = km * 0.621371;
+      distanceText = (lang === "pl")
+        ? `Odległość: ${Math.round(km).toLocaleString()} km (${Math.round(miles).toLocaleString()} mi)`
+        : `Distance: ${Math.round(km).toLocaleString()} km (${Math.round(miles).toLocaleString()} mi)`;
+    }
   }
+  document.getElementById("distanceLine").textContent = distanceText;
 
-  function goToKiss() {
-    const t = i18n[currentLang];
-    goToLocation(LOC_KISS.lat, LOC_KISS.lng, t.popupKiss);
-  }
+  document.getElementById("statusTitle").textContent = i18n[lang].statusTitle;
+}
 
-  function goToCouple() {
-    const t = i18n[currentLang];
-    goToLocation(LOC_COUPLE.lat, LOC_COUPLE.lng, t.popupCouple);
-  }
+/* -------------------------------------------------
+   Map
+------------------------------------------------- */
+const map = L.map('map').setView([50.0647, 19.9450], 12);
 
-  // -------------------------
-// LANGUAGE SETTER
-// -------------------------
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+let marker = L.marker([50.0647, 19.9450]).addTo(map);
+
+const LOC_KISS = { lat: 50.0547315, lng: 19.9383911 };
+const LOC_COUPLE = { lat: 51.1146870, lng: 17.0350156 };
+
+function goToLocation(lat, lng, label) {
+  map.flyTo([lat, lng], 15, { animate: true, duration: 1.2 });
+  marker.setLatLng([lat, lng]);
+  marker.bindPopup(label, { autoPan: false }).openPopup();
+}
+
+function goToKiss() {
+  const t = i18n[currentLang];
+  goToLocation(LOC_KISS.lat, LOC_KISS.lng, t.popupKiss);
+}
+
+function goToCouple() {
+  const t = i18n[currentLang];
+  goToLocation(LOC_COUPLE.lat, LOC_COUPLE.lng, t.popupCouple);
+}
+
+/* -------------------------------------------------
+   Language
+------------------------------------------------- */
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem("cab_lang", lang);
 
   const t = i18n[lang];
 
-  // Update document lang
   document.documentElement.lang = lang;
 
-  // Toggle UI state
   document.getElementById("btnEN").classList.toggle("active", lang === "en");
   document.getElementById("btnPL").classList.toggle("active", lang === "pl");
 
-  // Text updates
   document.getElementById("navHome").textContent = t.navHome;
   document.getElementById("navStory").textContent = t.navStory;
+  document.getElementById("navGallery").textContent = t.navGallery;
   document.getElementById("navBlogs").textContent = t.navBlogs;
 
   document.getElementById("tagline").textContent = t.tagline;
@@ -568,32 +968,114 @@ function setLang(lang) {
   document.getElementById("btnKiss").textContent = t.btnKiss;
   document.getElementById("btnCouple").textContent = t.btnCouple;
 
-  // Countdown title (NEW)
-  document.querySelector(".together-countdown h2").textContent = t.countdownTitle;
+  document.getElementById("countdownTitle").textContent = t.countdownTitle;
 
-  // Default marker popup label for Kraków
   marker.bindPopup(t.mapDefaultPopup, { autoPan: false });
 
-  // Refresh counters immediately
   updateCounter();
   updateTogetherCountdown();
+  renderLoveStatus();
 }
 
-// Init
-setLang(currentLang);
-updateCounter();
-updateTogetherCountdown();
-setInterval(updateCounter, 1000);
+/* -------------------------------------------------
+   Settings modal
+------------------------------------------------- */
+function openSettings() {
+  document.getElementById("settingsBackdrop").classList.add("show");
+  document.getElementById("settingsBackdrop").setAttribute("aria-hidden", "false");
+}
+function closeSettings() {
+  document.getElementById("settingsBackdrop").classList.remove("show");
+  document.getElementById("settingsBackdrop").setAttribute("aria-hidden", "true");
+  document.getElementById("unlockCodeInput").value = "";
+  document.getElementById("settingsFields").style.display = "none";
+}
 
-// Init
+function fillSettingsForm() {
+  document.getElementById("togetherMode").value = cabSettings.togetherMode;
+  document.getElementById("togetherDateInput").value = toDatetimeLocal(cabSettings.togetherDateISO);
+
+  document.getElementById("meTZ").value = cabSettings.me.tz;
+  document.getElementById("herTZ").value = cabSettings.her.tz;
+  document.getElementById("meStart").value = cabSettings.me.awakeStart;
+  document.getElementById("meEnd").value = cabSettings.me.awakeEnd;
+  document.getElementById("herStart").value = cabSettings.her.awakeStart;
+  document.getElementById("herEnd").value = cabSettings.her.awakeEnd;
+  document.getElementById("meCoord").value = cabSettings.me.coord;
+  document.getElementById("herCoord").value = cabSettings.her.coord;
+}
+
+function readSettingsForm() {
+  cabSettings.togetherMode = document.getElementById("togetherMode").value;
+
+  const iso = fromDatetimeLocal(document.getElementById("togetherDateInput").value);
+  if (iso) cabSettings.togetherDateISO = iso;
+
+  cabSettings.me.tz = document.getElementById("meTZ").value.trim();
+  cabSettings.her.tz = document.getElementById("herTZ").value.trim();
+  cabSettings.me.awakeStart = document.getElementById("meStart").value.trim();
+  cabSettings.me.awakeEnd = document.getElementById("meEnd").value.trim();
+  cabSettings.her.awakeStart = document.getElementById("herStart").value.trim();
+  cabSettings.her.awakeEnd = document.getElementById("herEnd").value.trim();
+  cabSettings.me.coord = document.getElementById("meCoord").value.trim();
+  cabSettings.her.coord = document.getElementById("herCoord").value.trim();
+}
+
+/* -------------------------------------------------
+   Wire buttons + init
+------------------------------------------------- */
+document.getElementById("btnEN").addEventListener("click", () => setLang("en"));
+document.getElementById("btnPL").addEventListener("click", () => setLang("pl"));
+
+document.getElementById("btnKiss").addEventListener("click", goToKiss);
+document.getElementById("btnCouple").addEventListener("click", goToCouple);
+
+document.getElementById("openSettingsBtn").addEventListener("click", () => {
+  fillSettingsForm();
+  openSettings();
+});
+
+document.getElementById("closeSettingsBtn").addEventListener("click", closeSettings);
+
+document.getElementById("settingsBackdrop").addEventListener("click", (e) => {
+  if (e.target.id === "settingsBackdrop") closeSettings();
+});
+
+document.getElementById("unlockBtn").addEventListener("click", () => {
+  const code = document.getElementById("unlockCodeInput").value.trim();
+  if (code === cabSettings.unlockCode) {
+    document.getElementById("settingsFields").style.display = "block";
+  } else {
+    alert("Wrong code.");
+  }
+});
+
+document.getElementById("saveSettingsBtn").addEventListener("click", () => {
+  readSettingsForm();
+  saveSettings(cabSettings);
+  renderLoveStatus();
+  updateTogetherCountdown();
+  alert("Saved!");
+});
+
+document.getElementById("resetSettingsBtn").addEventListener("click", () => {
+  localStorage.removeItem("cab_settings");
+  cabSettings = loadSettings();
+  fillSettingsForm();
+  renderLoveStatus();
+  updateTogetherCountdown();
+  alert("Reset to default.");
+});
+
+// ✅ Single clean init (no duplicates)
 setLang(currentLang);
 updateCounter();
 updateTogetherCountdown();
+renderLoveStatus();
 
 setInterval(updateCounter, 1000);
 setInterval(updateTogetherCountdown, 1000);
-
-
+setInterval(renderLoveStatus, 30000);
 </script>
 
 </body>
