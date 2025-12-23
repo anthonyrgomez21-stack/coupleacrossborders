@@ -64,6 +64,7 @@
       display: flex;
       gap: 18px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -76,6 +77,35 @@
 
     nav a.active {
       border-bottom: 2px solid var(--deep-blue);
+      font-weight: 700;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      margin-left: 10px;
+    }
+
+    .lang-toggle button {
+      border: 1px solid rgba(43,93,125,0.35);
+      background: rgba(255,255,255,0.45);
+      color: var(--deep-blue);
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .lang-toggle button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(43,93,125,0.6);
       font-weight: 700;
     }
 
@@ -183,6 +213,10 @@
         background: rgba(255,255,255,0.35);
         border-radius: 12px;
       }
+
+      .lang-toggle {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
@@ -208,6 +242,11 @@
     <a href="Our-Story.html" class="active">Our Story</a>
     <a href="gallery.html">Gallery</a>
     <a href="#">Blogs</a>
+
+    <div class="lang-toggle" aria-label="Language Toggle">
+      <button type="button" class="active">EN</button>
+      <button type="button">PL</button>
+    </div>
   </nav>
 </header>
 
@@ -224,11 +263,10 @@
 
     <div class="chapters">
 
-      <!-- CHAPTER 1 -->
       <div class="chapter-card">
         <div class="chapter-info">
           <h2>The Beginning</h2>
-          <p>How a Insta reel turned into a fairytale.</p>
+          <p>How an Instagram reel turned into a real-life fairytale.</p>
         </div>
         <a href="TheBeginning.html" class="chapter-link">Read Chapter →</a>
       </div>
