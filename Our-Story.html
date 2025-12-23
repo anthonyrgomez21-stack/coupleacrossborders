@@ -35,7 +35,6 @@
       color: var(--text-gray);
     }
 
-    /* HEADER */
     header {
       background: var(--globe-blue);
       display: flex;
@@ -54,10 +53,7 @@
       white-space: nowrap;
     }
 
-    .logo svg {
-      width: 42px;
-      height: 42px;
-    }
+    .logo svg { width: 42px; height: 42px; }
 
     nav {
       margin-left: auto;
@@ -80,7 +76,6 @@
       font-weight: 700;
     }
 
-    /* Language Toggle */
     .lang-toggle {
       display: flex;
       gap: 8px;
@@ -95,12 +90,6 @@
       font-size: 13px;
       border-radius: 12px;
       cursor: pointer;
-      transition: opacity 0.15s ease, transform 0.15s ease;
-    }
-
-    .lang-toggle button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
     }
 
     .lang-toggle button.active {
@@ -109,7 +98,6 @@
       font-weight: 700;
     }
 
-    /* MAIN */
     main {
       padding: 72px 20px 80px;
       display: flex;
@@ -125,7 +113,6 @@
       font-size: 56px;
       color: var(--deep-blue);
       margin-bottom: 14px;
-      text-align: left;
       letter-spacing: -0.5px;
     }
 
@@ -134,10 +121,8 @@
       line-height: 1.7;
       max-width: 640px;
       margin-bottom: 48px;
-      color: var(--text-gray);
     }
 
-    /* CHAPTER LIST */
     .chapters {
       display: flex;
       flex-direction: column;
@@ -152,12 +137,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .chapter-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 42px rgba(0,0,0,0.12);
     }
 
     .chapter-info h2 {
@@ -168,7 +147,6 @@
 
     .chapter-info p {
       font-size: 15px;
-      color: var(--text-gray);
     }
 
     .chapter-link {
@@ -182,40 +160,13 @@
       white-space: nowrap;
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
-      h1 {
-        font-size: 42px;
-      }
+      h1 { font-size: 42px; }
 
       .chapter-card {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-      }
-
-      .chapter-link {
-        align-self: flex-start;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 14px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      nav a {
-        font-size: 14px;
-        padding: 10px 12px;
-        background: rgba(255,255,255,0.35);
-        border-radius: 12px;
-      }
-
-      .lang-toggle {
-        margin-left: 0;
       }
     }
   </style>
@@ -224,28 +175,17 @@
 <body>
 
 <header>
-  <div class="logo-area">
-    <div class="logo">
-      <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="#ffffff"/>
-        <path d="M50 70 C20 45, 35 25, 50 35 C65 25, 80 45, 50 70Z"
-              fill="#9ad6f5"/>
-        <circle cx="40" cy="45" r="4" fill="#ffffff"/>
-        <circle cx="60" cy="45" r="4" fill="#ffffff"/>
-      </svg>
-    </div>
-    Couple Across Borders
-  </div>
+  <div class="logo-area">Couple Across Borders</div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="Our-Story.html" class="active">Our Story</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="#">Blogs</a>
+    <a data-en="Home" data-pl="Strona główna">Home</a>
+    <a class="active" data-en="Our Story" data-pl="Nasza historia">Our Story</a>
+    <a data-en="Gallery" data-pl="Galeria">Gallery</a>
+    <a data-en="Blogs" data-pl="Blog">Blogs</a>
 
-    <div class="lang-toggle" aria-label="Language Toggle">
-      <button type="button" class="active">EN</button>
-      <button type="button">PL</button>
+    <div class="lang-toggle">
+      <button id="lang-en" class="active">EN</button>
+      <button id="lang-pl">PL</button>
     </div>
   </nav>
 </header>
@@ -253,9 +193,11 @@
 <main>
   <div class="story-index-wrapper">
 
-    <h1>Our Story</h1>
+    <h1 data-en="Our Story" data-pl="Nasza historia">Our Story</h1>
 
-    <p class="intro-text">
+    <p class="intro-text"
+       data-en="A journey told in chapters — moments across borders, distance, faith, and time. Each chapter captures a season of our story, exactly as it unfolded."
+       data-pl="Podróż opowiedziana rozdziałami — chwile ponad granicami, dystansem, wiarą i czasem. Każdy rozdział uchwyca etap naszej historii dokładnie tak, jak się wydarzył.">
       A journey told in chapters — moments across borders, distance, faith,
       and time. Each chapter captures a season of our story, exactly as it
       unfolded.
@@ -265,16 +207,41 @@
 
       <div class="chapter-card">
         <div class="chapter-info">
-          <h2>The Beginning</h2>
-          <p>How an Instagram reel turned into a real-life fairytale.</p>
+          <h2 data-en="The Beginning" data-pl="Początek">The Beginning</h2>
+          <p data-en="How an Instagram reel turned into a real-life fairytale."
+             data-pl="Jak jeden Instagramowy filmik zamienił się w prawdziwą bajkę.">
+            How an Instagram reel turned into a real-life fairytale.
+          </p>
         </div>
-        <a href="TheBeginning.html" class="chapter-link">Read Chapter →</a>
+        <a class="chapter-link"
+           href="TheBeginning.html"
+           data-en="Read Chapter →"
+           data-pl="Czytaj rozdział →">
+          Read Chapter →
+        </a>
       </div>
 
     </div>
 
   </div>
 </main>
+
+<script>
+  const btnEN = document.getElementById('lang-en');
+  const btnPL = document.getElementById('lang-pl');
+
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.innerHTML = el.dataset[lang];
+    });
+
+    btnEN.classList.toggle('active', lang === 'en');
+    btnPL.classList.toggle('active', lang === 'pl');
+  }
+
+  btnEN.addEventListener('click', () => switchLanguage('en'));
+  btnPL.addEventListener('click', () => switchLanguage('pl'));
+</script>
 
 </body>
 </html>
