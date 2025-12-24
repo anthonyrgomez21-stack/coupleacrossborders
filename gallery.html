@@ -7,13 +7,28 @@
 
   <!-- 🌍 FAVICON -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-    <circle cx='50' cy='50' r='45' fill='%239ad6f5'/>
-    <path d='M50 70 C20 45, 35 25, 50 35 C65 25, 80 45, 50 70Z'
-          fill='%23ffffff'/>
-    <circle cx='40' cy='45' r='4' fill='%239ad6f5'/>
-    <circle cx='60' cy='45' r='4' fill='%239ad6f5'/>
-  </svg>"/>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <!-- Background -->
+  <circle cx='50' cy='50' r='45' fill='%239ad6f5'/>
+
+  <!-- Orbit -->
+  <ellipse cx='50' cy='50' rx='32' ry='14'
+           fill='none'
+           stroke='%23ffffff'
+           stroke-width='2'
+           opacity='0.7'/>
+
+  <!-- Heart -->
+  <path d='M50 68
+           C18 44, 34 24, 50 36
+           C66 24, 82 44, 50 68Z'
+        fill='%23ffffff'/>
+
+  <!-- Stars -->
+  <circle cx='28' cy='32' r='2' fill='%23ffffff'/>
+  <circle cx='72' cy='32' r='2' fill='%23ffffff'/>
+</svg>"/>
+
 
   <style>
     :root {
@@ -159,18 +174,29 @@
 <body>
 
 <header>
-  <div class="logo-area">
-    <div class="logo">
-      <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="#ffffff"/>
-        <path d="M50 70 C20 45, 35 25, 50 35 C65 25, 80 45, 50 70Z"
-              fill="#9ad6f5"/>
-        <circle cx="40" cy="45" r="4" fill="#ffffff"/>
-        <circle cx="60" cy="45" r="4" fill="#ffffff"/>
-      </svg>
-    </div>
-    Couple Across Borders
+ <div class="logo-area">
+  <div class="logo">
+    <svg viewBox="0 0 100 100" width="42" height="42">
+      <circle cx="50" cy="50" r="45" fill="#9ad6f5"/>
+
+      <ellipse cx="50" cy="50" rx="32" ry="14"
+               fill="none"
+               stroke="#ffffff"
+               stroke-width="2"
+               opacity="0.7"/>
+
+      <path d="M50 68
+               C18 44, 34 24, 50 36
+               C66 24, 82 44, 50 68Z"
+            fill="#ffffff"/>
+
+      <circle cx="28" cy="32" r="2" fill="#ffffff"/>
+      <circle cx="72" cy="32" r="2" fill="#ffffff"/>
+    </svg>
   </div>
+  Couple Across Borders
+</div>
+
 
   <nav>
     <a href="index.html">Home</a>
