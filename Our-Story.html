@@ -169,6 +169,43 @@
         gap: 16px;
       }
     }
+
+    /* 📱 MOBILE HEADER FIX */
+@media (max-width: 600px) {
+
+  header {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 14px;
+  }
+
+  nav a.active {
+    background: rgba(255,255,255,0.8);
+    border-bottom: none;
+  }
+
+  .lang-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 6px;
+  }
+}
+
   </style>
 </head>
 
@@ -179,8 +216,8 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="Our-Story.html" id="navStory">Our Story</a>
-    <a href="gallery.html" class="active">Gallery</a>
+    <a href="Our-Story.html" id="navStory" class="active">Our Story</a>
+    <a href="gallery.html">Gallery</a>
     <a href="#">Blogs</a>
 
     <div class="lang-toggle">
@@ -233,13 +270,16 @@
   const btnPL = document.getElementById('lang-pl');
 
   function switchLanguage(lang) {
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.innerHTML = el.dataset[lang];
-    });
+  // Only translate page content (not the header/nav)
+  const contentArea = document.querySelector('main');
+  contentArea.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
 
-    btnEN.classList.toggle('active', lang === 'en');
-    btnPL.classList.toggle('active', lang === 'pl');
-  }
+  btnEN.classList.toggle('active', lang === 'en');
+  btnPL.classList.toggle('active', lang === 'pl');
+}
+
 
   btnEN.addEventListener('click', () => switchLanguage('en'));
   btnPL.addEventListener('click', () => switchLanguage('pl'));
