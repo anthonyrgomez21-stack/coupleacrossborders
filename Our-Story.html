@@ -2,33 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Our Story · Couple Across Borders</title>
+  <title>Our Future · Couple Across Borders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- 🌍 FAVICON -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <!-- Background -->
   <circle cx='50' cy='50' r='45' fill='%239ad6f5'/>
-
-  <!-- Orbit -->
   <ellipse cx='50' cy='50' rx='32' ry='14'
            fill='none'
            stroke='%23ffffff'
            stroke-width='2'
            opacity='0.7'/>
-
-  <!-- Heart -->
   <path d='M50 68
            C18 44, 34 24, 50 36
            C66 24, 82 44, 50 68Z'
         fill='%23ffffff'/>
-
-  <!-- Stars -->
   <circle cx='28' cy='32' r='2' fill='%23ffffff'/>
   <circle cx='72' cy='32' r='2' fill='%23ffffff'/>
 </svg>"/>
-
 
   <style>
     :root {
@@ -119,7 +111,7 @@
       justify-content: center;
     }
 
-    .story-index-wrapper {
+    .future-wrapper {
       max-width: 900px;
       width: 100%;
     }
@@ -127,176 +119,255 @@
     h1 {
       font-size: 56px;
       color: var(--deep-blue);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
       letter-spacing: -0.5px;
     }
 
     .intro-text {
       font-size: 18px;
-      line-height: 1.7;
-      max-width: 640px;
+      line-height: 1.8;
+      max-width: 720px;
       margin-bottom: 48px;
     }
 
-    .chapters {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .future-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
-    .chapter-card {
+    .future-card {
       background: #ffffff;
-      border-radius: 18px;
-      padding: 26px 30px;
+      border-radius: 20px;
+      padding: 26px;
       box-shadow: 0 14px 36px rgba(0,0,0,0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
-    .chapter-info h2 {
-      font-size: 22px;
+    .future-card h2 {
+      font-size: 20px;
       color: var(--deep-blue);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
 
-    .chapter-info p {
+    .future-card p {
       font-size: 15px;
+      line-height: 1.6;
     }
 
-    .chapter-link {
-      text-decoration: none;
-      color: #ffffff;
-      background: var(--deep-blue);
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      white-space: nowrap;
+    .coming-soon {
+      margin-top: 60px;
+      padding: 28px;
+      background: rgba(154,214,245,0.25);
+      border-radius: 20px;
     }
 
-    @media (max-width: 700px) {
-      h1 { font-size: 42px; }
+    .coming-soon h2 {
+      color: var(--deep-blue);
+      margin-bottom: 10px;
+    }
 
-      .chapter-card {
+    .flag {
+      font-size: 28px;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 14px 16px;
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 12px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 10px 14px;
+        background: rgba(255,255,255,0.4);
+        border-radius: 14px;
+      }
+
+      nav a.active {
+        background: rgba(255,255,255,0.8);
+        border-bottom: none;
+      }
+
+      .lang-toggle {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 6px;
+      }
+
+      h1 {
+        font-size: 42px;
       }
     }
-
-    /* 📱 MOBILE HEADER FIX */
-@media (max-width: 600px) {
-
-  header {
-    padding: 14px 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 14px;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 14px;
-  }
-
-  nav a.active {
-    background: rgba(255,255,255,0.8);
-    border-bottom: none;
-  }
-
-  .lang-toggle {
-    width: 100%;
-    justify-content: flex-start;
-    margin-top: 6px;
-  }
-}
-
   </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo-area">
-  <div class="logo">
-    <svg viewBox="0 0 100 100" width="42" height="42">
-      <circle cx="50" cy="50" r="45" fill="#9ad6f5"/>
-
-      <ellipse cx="50" cy="50" rx="32" ry="14"
-               fill="none"
-               stroke="#ffffff"
-               stroke-width="2"
-               opacity="0.7"/>
-
-      <path d="M50 68
-               C18 44, 34 24, 50 36
-               C66 24, 82 44, 50 68Z"
-            fill="#ffffff"/>
-
-      <circle cx="28" cy="32" r="2" fill="#ffffff"/>
-      <circle cx="72" cy="32" r="2" fill="#ffffff"/>
-    </svg>
+  <div class="logo-area">
+    <div class="logo">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="#9ad6f5"/>
+        <ellipse cx="50" cy="50" rx="32" ry="14"
+                 fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+        <path d="M50 68 C18 44, 34 24, 50 36 C66 24, 82 44, 50 68Z"
+              fill="#ffffff"/>
+        <circle cx="28" cy="32" r="2" fill="#ffffff"/>
+        <circle cx="72" cy="32" r="2" fill="#ffffff"/>
+      </svg>
+    </div>
+    Couple Across Borders
   </div>
-  Couple Across Borders
-</div>
-
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="Our-Story.html" id="navStory" class="active">Our Story</a>
+    <a href="Our-Story.html">Our Story</a>
     <a href="gallery.html">Gallery</a>
     <a href="Our-Future.html" id="navFuture">Our Future</a>
 
     <div class="lang-toggle">
-      <button id="lang-en" class="active">EN</button>
-      <button id="lang-pl">PL</button>
+      <button id="lang-en" class="active" type="button">EN</button>
+      <button id="lang-pl" type="button">PL</button>
     </div>
-
-    
   </nav>
 </header>
 
 <main>
-  <div class="story-index-wrapper">
+  <div class="future-wrapper">
 
-    <h1 data-en="Our Story" data-pl="Nasza historia">Our Story</h1>
+    <h1
+      data-en="What’s Next?"
+      data-pl="Co dalej?"
+    >What’s Next?</h1>
 
     <p class="intro-text"
-       data-en="A journey told in chapters — moments across borders, distance, faith, and time. Each chapter captures a season of our story, exactly as it unfolded."
-       data-pl="Podróż opowiedziana rozdziałami — chwile ponad granicami, dystansem, wiarą i czasem. Każdy rozdział uchwyca etap naszej historii dokładnie tak, jak się wydarzył.">
-      A journey told in chapters — moments across borders, distance, faith,
-      and time. Each chapter captures a season of our story, exactly as it
-      unfolded.
+      data-en="Our story doesn’t end here — it expands. What started across borders is becoming a shared journey built on ambition, faith, and love. Together, we’re stepping into a future where distance turns into movement, and moments turn into memories shared with the world."
+      data-pl="Nasza historia tutaj się nie kończy — ona się rozrasta. To, co zaczęło się ponad granicami, staje się wspólną drogą zbudowaną na ambicji, wierze i miłości. Razem wchodzimy w przyszłość, w której dystans zamienia się w ruch, a chwile w wspomnienia, którymi dzielimy się ze światem."
+    >
+      Our story doesn’t end here — it expands. What started across borders is
+      becoming a shared journey built on ambition, faith, and love.
+      Together, we’re stepping into a future where distance turns into
+      movement, and moments turn into memories shared with the world.
     </p>
 
-    <div class="chapters">
+    <div class="future-cards">
 
-      <div class="chapter-card">
-        <div class="chapter-info">
-          <h2 data-en="The Beginning" data-pl="Początek">The Beginning</h2>
-          <p data-en="How an Instagram reel turned into a real-life fairytale."
-             data-pl="Jak jeden Instagramowy filmik zamienił się w prawdziwą bajkę.">
-            How an Instagram reel turned into a real-life fairytale.
-          </p>
-        </div>
-        <a class="chapter-link"
-           href="TheBeginning.html"
-           data-en="Read Chapter →"
-           data-pl="Czytaj rozdział →">
-          Read Chapter →
-        </a>
+      <div class="future-card">
+        <h2
+          data-en="🌍 Content Creators"
+          data-pl="🌍 Twórcy treści"
+        >🌍 Content Creators</h2>
+        <p
+          data-en="We’re building a life where creativity and connection meet. Sharing couple content, travel moments, and everyday growth — honestly, intentionally, and together."
+          data-pl="Budujemy życie, w którym kreatywność spotyka się z bliskością. Chcemy pokazywać treści dla par, podróże i codzienny rozwój — szczerze, świadomie i razem."
+        >
+          We’re building a life where creativity and connection meet.
+          Sharing couple content, travel moments, and everyday growth —
+          honestly, intentionally, and together.
+        </p>
       </div>
 
+      <div class="future-card">
+        <h2
+          data-en="✈️ Travel & Adventure"
+          data-pl="✈️ Podróże i przygoda"
+        >✈️ Travel & Adventure</h2>
+        <p
+          data-en="From long-distance visits to full adventures, we want to explore what the world offers — cities, cultures, and moments that shape who we become."
+          data-pl="Od wizyt na odległość po prawdziwe wyprawy — chcemy odkrywać to, co oferuje świat: miasta, kultury i chwile, które kształtują naszą przyszłość."
+        >
+          From long-distance visits to full adventures, we want to explore
+          what the world offers — cities, cultures, and moments that shape
+          who we become.
+        </p>
+      </div>
+
+      <div class="future-card">
+        <h2
+          data-en="🗣️ Language & Culture"
+          data-pl="🗣️ Język i kultura"
+        >🗣️ Language & Culture</h2>
+        <p
+          data-en="Learning each other’s languages, blending cultures, and showing what growth looks like when love crosses borders."
+          data-pl="Uczymy się nawzajem swoich języków, łączymy kultury i pokazujemy, jak wygląda rozwój, kiedy miłość przekracza granice."
+        >
+          Learning each other’s languages, blending cultures, and showing
+          what growth looks like when love crosses borders.
+        </p>
+      </div>
+
+      <div class="future-card">
+        <h2
+          data-en="🙏 Faith & Ambition"
+          data-pl="🙏 Wiara i ambicja"
+        >🙏 Faith & Ambition</h2>
+        <p
+          data-en="We believe deeply that with faith, patience, and commitment, what’s meant for us will unfold — step by step, together."
+          data-pl="Głęboko wierzymy, że dzięki wierze, cierpliwości i zaangażowaniu to, co jest nam przeznaczone, będzie się spełniać — krok po kroku, razem."
+        >
+          We believe deeply that with faith, patience, and commitment,
+          what’s meant for us will unfold — step by step, together.
+        </p>
+      </div>
+
+      <!-- ✅ NEW CARD 1 -->
+      <div class="future-card">
+        <h2
+          data-en="💍 Love & Marriage"
+          data-pl="💍 Miłość i małżeństwo"
+        >💍 Love & Marriage</h2>
+        <p
+          data-en="We’re fully committed to each other — soulmates, best friends, and future spouses. In the coming years, we want to be married under God and build a life rooted in faith, loyalty, and lifelong love."
+          data-pl="Jesteśmy sobie w pełni oddani — bratnie dusze, najlepsi przyjaciele i przyszli małżonkowie. W najbliższych latach chcemy wziąć ślub przed Bogiem i budować życie oparte na wierze, lojalności i miłości na całe życie."
+        >
+          We’re fully committed to each other — soulmates, best friends, and
+          future spouses. In the coming years, we want to be married under God
+          and build a life rooted in faith, loyalty, and lifelong love.
+        </p>
+      </div>
+
+      <!-- ✅ NEW CARD 2 -->
+      <div class="future-card">
+        <h2
+          data-en="🎓 Education & Work"
+          data-pl="🎓 Nauka i praca"
+        >🎓 Education & Work</h2>
+        <p
+          data-en="Right now, we’re students pursuing our degrees while working in our fields — grinding, learning, and leveling up together. We’re building the foundation for the life we want, side by side, even across distance."
+          data-pl="Teraz jesteśmy studentami, zdobywamy wykształcenie i jednocześnie pracujemy w swoich dziedzinach — działamy na pełnych obrotach, uczymy się i rozwijamy razem. Budujemy fundament pod życie, którego chcemy — ramię w ramię, nawet jeśli dzieli nas odległość."
+        >
+          Right now, we’re students pursuing our degrees while working in our
+          fields — grinding, learning, and leveling up together. We’re building
+          the foundation for the life we want, side by side, even across distance.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="coming-soon">
+      <h2
+        data-en="🇭🇺 Coming Winter 2026"
+        data-pl="🇭🇺 Już zimą 2026"
+      ><span class="flag">🇭🇺</span>Coming Winter 2026</h2>
+
+      <p
+        data-en="Our first travel content begins in <strong>Budapest, Hungary</strong>. Couple content and travel stories launch together — stay tuned as the journey truly begins."
+        data-pl="Nasze pierwsze treści podróżnicze zaczynają się w <strong>Budapeszcie na Węgrzech</strong>. Treści dla par i podróże ruszają razem — bądźcie z nami, bo wtedy ta przygoda naprawdę się zaczyna."
+      >
+        Our first travel content begins in <strong>Budapest, Hungary</strong>.
+        Couple content and travel stories launch together — stay tuned as
+        the journey truly begins.
+      </p>
     </div>
 
   </div>
@@ -307,16 +378,15 @@
   const btnPL = document.getElementById('lang-pl');
 
   function switchLanguage(lang) {
-  // Only translate page content (not the header/nav)
-  const contentArea = document.querySelector('main');
-  contentArea.querySelectorAll('[data-en]').forEach(el => {
-    el.innerHTML = el.dataset[lang];
-  });
+    // Only translate page content (not the header/nav)
+    const contentArea = document.querySelector('main');
+    contentArea.querySelectorAll('[data-en]').forEach(el => {
+      el.innerHTML = el.dataset[lang];
+    });
 
-  btnEN.classList.toggle('active', lang === 'en');
-  btnPL.classList.toggle('active', lang === 'pl');
-}
-
+    btnEN.classList.toggle('active', lang === 'en');
+    btnPL.classList.toggle('active', lang === 'pl');
+  }
 
   btnEN.addEventListener('click', () => switchLanguage('en'));
   btnPL.addEventListener('click', () => switchLanguage('pl'));
